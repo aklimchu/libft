@@ -6,7 +6,7 @@
 #    By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 11:18:05 by aklimchu          #+#    #+#              #
-#    Updated: 2024/05/06 13:56:15 by aklimchu         ###   ########.fr        #
+#    Updated: 2024/05/07 09:26:44 by aklimchu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ clean:
 	rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean 
-	rm -f $(NAME)
+	rm -f $(NAME) .bonus
 
 re: fclean all
 

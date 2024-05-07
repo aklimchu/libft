@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 08:08:17 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/05/06 09:49:57 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/05/07 09:27:18 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*newlst;
 	t_list	*temp;
-	t_list	*temp_c;
+	void	*temp_c;
 
 	if (!lst || !f || !del)
 		return ((void *) 0);
