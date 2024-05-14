@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:32:55 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/05/14 12:04:41 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:49:23 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (new_s == NULL)
 		return ((void *)0);
 	if (start >= ft_strlen(s))
-		return (*new_s = '\0', new_s);
-	i = 0;
-	while (i < start)
 	{
-		s++;
-		i++;
+		*new_s = '\0';
+		return (new_s);
 	}
 	i = 0;
 	while (i < len)
 	{
-		new_s[i] = s[i];
+		new_s[i] = s[i + start];
 		i++;
 	}
-	return (new_s[i] = '\0', new_s);
+	new_s[i] = '\0';
+	return (new_s);
 }
