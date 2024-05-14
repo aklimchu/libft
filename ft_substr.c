@@ -6,28 +6,12 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:32:55 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/05/08 14:57:41 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:04:41 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
-static char	*write_s(char *new_s, char const *s, size_t len)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < len)
-	{
-		*new_s = *s;
-		s++;
-		new_s++;
-		i++;
-	}
-	*new_s = '\0';
-	return (new_s - len);
-}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -42,16 +26,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (new_s == NULL)
 		return ((void *)0);
 	if (start >= ft_strlen(s))
-	{
-		*new_s = '\0';
-		return (new_s);
-	}
+		return (*new_s = '\0', new_s);
 	i = 0;
 	while (i < start)
 	{
 		s++;
 		i++;
 	}
-	new_s = write_s(new_s, s, len);
-	return (new_s);
+	i = 0;
+	while (i < len)
+	{
+		new_s[i] = s[i];
+		i++;
+	}
+	return (new_s[i] = '\0', new_s);
 }
