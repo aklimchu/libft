@@ -6,15 +6,13 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:03:17 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/05/22 13:27:00 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:10:26 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 #include <strings.h>
-#include <unistd.h>
 #include <ctype.h>
 #include <limits.h>
 #include "libft.h"

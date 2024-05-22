@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:10:47 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/05/22 13:37:14 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:10:44 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <strings.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <ctype.h>
 #include <limits.h>
 #include "libft.h"
 
