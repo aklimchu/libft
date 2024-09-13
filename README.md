@@ -1,6 +1,6 @@
 # libft:
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://opensource.org/licenses/GPL-3.0)
-Libft is a custom implementation of key functions from the C standard library. This library was later reused across other projects, ensuring efficient and optimized code without relying on external libraries.
+libft is a custom implementation of key functions from the C standard library. This library was later reused across other projects, ensuring efficient and optimized code without relying on external libraries.
 
 ## 📚 Table of Contents
 - [✨ Features](#-features)
