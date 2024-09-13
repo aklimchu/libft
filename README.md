@@ -3,18 +3,16 @@
 Libft is a custom implementation of key functions from the C standard library. This library was later reused across other projects, ensuring efficient and optimized code without relying on external libraries.
 
 ## 📚 Table of Contents
-
-## ✨ Features
-- Reimplementation of essential C functions (`atoi`, `strdup`, `memset`, etc.)
-- Custom utility functions for advanced operations
-
-## 📚 Table of Contents
 - [✨ Features](#-features)
 - [🚀 Installation!](#-installation)
 - [🛠️ Build the Program!](#️-build-the-program)
 - [🎮 Running the Program](#-running-the-program)
 - [🧹 Cleaning Up](#-cleaning-up)
 - [License](#license)
+
+## ✨ Features
+- Reimplementation of essential C functions (`atoi`, `strdup`, `memset`, etc.)
+- Custom utility functions for advanced operations
 
 ## 🚀 Installation!
 
