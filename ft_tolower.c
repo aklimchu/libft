@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//If c is  an uppercase letter, the function returns its lowercase equivalent.
+//Otherwise, it returns c (libc)
 int	ft_tolower(int c)
 {
 	if (c > 64 && c < 91)

@@ -12,6 +12,33 @@
 
 #include "libft.h"
 
+static size_t	countd(int n);
+
+static char	*creates(size_t d, int n);
+
+static char	*writes(char *str, size_t d, int n);
+
+static char	*ifmaxint(void);
+
+//The function converts the integer n into a character string (libc)
+char	*ft_itoa(int n)
+{
+	size_t	d;
+	char	*str;
+
+	if (n == -2147483648)
+	{
+		str = ifmaxint();
+		return (str);
+	}
+	d = countd(n);
+	str = creates(d, n);
+	if (str == NULL)
+		return ((void *)0);
+	str = writes(str, d, n);
+	return (str);
+}
+
 static size_t	countd(int n)
 {
 	size_t	d;
@@ -92,23 +119,5 @@ static char	*ifmaxint(void)
 	*(str + 9) = '4';
 	*(str + 10) = '8';
 	*(str + 11) = '\0';
-	return (str);
-}
-
-char	*ft_itoa(int n)
-{
-	size_t	d;
-	char	*str;
-
-	if (n == -2147483648)
-	{
-		str = ifmaxint();
-		return (str);
-	}
-	d = countd(n);
-	str = creates(d, n);
-	if (str == NULL)
-		return ((void *)0);
-	str = writes(str, d, n);
 	return (str);
 }

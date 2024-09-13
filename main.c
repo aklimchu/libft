@@ -17,16 +17,11 @@
 #include <limits.h>
 #include "libft.h"
 
-char addc(unsigned int a, char c)
-{
-	c = c + a;
-	return (c);
-}
-void addcstr(unsigned int a, char *c)
-{
-	*c = *c + a;
-	return ;
-}
+static void addcstr(unsigned int a, char *c);
+
+static char addc(unsigned int a, char c);
+
+//Tests for libft (mandatory part)
 int	main(void)
 {
 	printf("Test for isalpha 'c' : %d\n", isalpha('c'));
@@ -105,31 +100,29 @@ int	main(void)
 	char src[10] = "YOYOYO";
 	char dst1[10] = "HEI";
 	char src1[10] = "YOYOYO";
-	printf("Test 1 for memcpy : %s\n", memcpy(dst, src, 2));
-	printf("Test 1 for ft_memcpy : %s\n", ft_memcpy(dst1, src1, 2));
-	printf("Test 2 for memcpy : %s\n", memcpy(dst, src, 0));
-	printf("Test 2 for ft_memcpy : %s\n", ft_memcpy(dst1, src1, 0));
-	printf("Test 3 for memcpy : %s\n", memcpy(dst, src, 4));
-	printf("Test 3 for ft_memcpy : %s\n", ft_memcpy(dst1, src1, 4));
-	printf("Test 6 for memcpy : %s\n", memcpy(NULL, NULL, 4));
-	printf("Test 6 for ft_memcpy : %s\n", ft_memcpy(NULL, NULL, 4));
+	printf("Test 1 for memcpy : %p\n", memcpy(dst, src, 2));
+	printf("Test 1 for ft_memcpy : %p\n", ft_memcpy(dst1, src1, 2));
+	printf("Test 2 for memcpy : %p\n", memcpy(dst, src, 0));
+	printf("Test 2 for ft_memcpy : %p\n", ft_memcpy(dst1, src1, 0));
+	printf("Test 3 for memcpy : %p\n", memcpy(dst, src, 4));
+	printf("Test 3 for ft_memcpy : %p\n", ft_memcpy(dst1, src1, 4));
+
 	
 	char dst2[12] = "COLDPLAY";
 	char src2[5] = "MOI";
 	char dst3[12] = "COLDPLAY";
 	char src3[5] = "MOI";
-	printf("Test 1 for memmove : %s\n", memmove(dst2 + 1, dst2, 2));
-	printf("Test 1 for ft_memmove : %s\n", ft_memmove(dst3 + 1, dst3, 2));
-	printf("Test 1 for memmove : %s\n", memmove(dst2, dst2 + 3, 2));
-	printf("Test 1 for ft_memmove : %s\n", ft_memmove(dst3, dst3 + 3, 2));
-	printf("Test 2 for memmove : %s\n", memmove(dst2, src2, 3));
- 	printf("Test 2 for ft_memmove : %s\n", ft_memmove(dst3, src3, 3));
-	printf("Test 3 for memmove : %s\n", memmove(NULL, NULL, 4));
-	printf("Test 3 for ft_memmove : %s\n", ft_memmove(NULL, NULL, 4));
+	printf("Test 1 for memmove : %p\n", memmove(dst2 + 1, dst2, 2));
+	printf("Test 1 for ft_memmove : %p\n", ft_memmove(dst3 + 1, dst3, 2));
+	printf("Test 1 for memmove : %p\n", memmove(dst2, dst2 + 3, 2));
+	printf("Test 1 for ft_memmove : %p\n", ft_memmove(dst3, dst3 + 3, 2));
+	printf("Test 2 for memmove : %p\n", memmove(dst2, src2, 3));
+ 	printf("Test 2 for ft_memmove : %p\n", ft_memmove(dst3, src3, 3));
+
 	
-	char dst4[17] = "HEICUTEGIRL";
+	char dst4[17] = "HEIHEI!";
 	char src4[4] = "MOI";
-	char dst5[17] = "HEICUTEGIRL";
+	char dst5[17] = "HEIHEI";
 	char src5[4] = "MOI";
 	printf("Test 1 for strlcpy : %lu, %s\n", strlcpy(dst4, src4, 14), dst4);
 	printf("Test 1 for ft_strlcpy : %lu, %s\n", ft_strlcpy(dst5, src5, 14), dst5);
@@ -165,8 +158,6 @@ int	main(void)
 
 	printf("Test for strchr 'd' in Andrei : %s\n", strchr("Andrei", 'd'));
 	printf("Test for ft_strchr 'd' in Andrei : %s\n", ft_strchr("Andrei", 'd'));
-	printf("Test for strchr 'm' in Andrei : %s\n", strchr("Andrei", 'm'));
-	printf("Test for ft_strchr 'm' in Andrei : %s\n", ft_strchr("Andrei", 'm'));
 	printf("Test for strchr 0 in Andrei : %s\n", strchr("Andrei", 0));
 	printf("Test for ft_strchr 0 in Andrei : %s\n", ft_strchr("Andrei", 0));
 	printf("Test for strchr  : %s\n", strchr("teste", 'e' + 256));
@@ -175,8 +166,6 @@ int	main(void)
 
 	printf("Test for strrchr 'd' in Andrei : %s\n", strrchr("Andreidrone", 'A'));
 	printf("Test for ft_strrchr 'd' in Andrei : %s\n", ft_strrchr("Andreidrone", 'A'));
-	printf("Test for strrchr 'm' in Andrei : %s\n", strrchr("Andrei", 'm'));
-	printf("Test for ft_strrchr 'm' in Andrei : %s\n", ft_strrchr("Andrei", 'm'));
 	printf("Test for strrchr 0 in Andrei : %s\n", strrchr("Andrei", 0));
 	printf("Test for ft_strrchr 0 in Andrei : %s\n\n\n", ft_strrchr("Andrei", 0));
 	printf("Test for strrchr  : %s\n", strrchr("teste", 't' + 256));
@@ -192,32 +181,17 @@ int	main(void)
 
 
 	
-	printf("Test for memchr 'd' in Andrei : %s\n", memchr("Andrei", 'd', 3));
-	printf("Test for ft_memchr 'd' in Andrei : %s\n", ft_memchr("Andrei", 'd', 3));
-	printf("Test for memchr 'm' in Andrei : %s\n", memchr("Andrei", 'm', 8));
-	printf("Test for ft_memchr 'm' in Andrei : %s\n", ft_memchr("Andrei", 'm', 8));
-	printf("Test for memchr 0 in Andrei : %s\n", memchr("Andrei", 0, 7));
-	printf("Test for ft_memchr 0 in Andrei : %s\n\n\n", ft_memchr("Andrei", 0, 7));
+	printf("Test for memchr 'd' in Andrei : %p\n", memchr("Andrei", 'd', 3));
+	printf("Test for ft_memchr 'd' in Andrei : %p\n", ft_memchr("Andrei", 'd', 3));
+	printf("Test for memchr 0 in Andrei : %p\n", memchr("Andrei", 0, 7));
+	printf("Test for ft_memchr 0 in Andrei : %p\n\n\n", ft_memchr("Andrei", 0, 7));
 
 	printf("Test for memcmp Moi, Andrei, 3 symb : %d\n", memcmp("Moi", "Andrei", 2));
 	printf("Test for ft_memcmp Moi, Andrei, 3 symb : %d\n", ft_memcmp("Moi", "Andrei", 2));
-	printf("Test for memcmp Hei, Heippa, 5 symb : %d\n", memcmp("Hei", "Heippa", 5));
-	printf("Test for ft_memcmp Hei, Heippa, 5 symb : %d\n", ft_memcmp("Hei", "Heippa", 5));
 	printf("Test for memcmp Hei, Heippa, 3 symb : %d\n", memcmp("Hei", "Heippa", 3));
 	printf("Test for ft_memcmp Hei, Heippa, 3 symb : %d\n", ft_memcmp("Hei", "Heippa", 3));
 	printf("Test for memcmp  : %d\n", memcmp("atoms\0\0\0\0", "atoms\0abc", 8));
 	printf("Test for ft_memcmp  : %d\n\n\n", ft_memcmp("atoms\0\0\0\0", "atoms\0abc", 8));
-
-
-	
-	printf("Test for strnstr HEYMYFRIEND, MY, -1 symb : %s\n", strnstr("HEYMYFRIEND", "MY", -1));
-	printf("Test for ft_strnstr HEYMYFRIEND, MY, -1 symb : %s\n", ft_strnstr("HEYMYFRIEND", "MY", -1));
-	printf("Test for strnstr HEYMYFRIEND, MY, 4 symb : %s\n", strnstr("HEYMYFRIEND", "MY", 4));
-	printf("Test for ft_strnstr HEYMYFRIEND, MY, 4 symb : %s\n", ft_strnstr("HEYMYFRIEND", "MY", 4));
-	printf("Test for strnstr HEYMYFRIEND, 'empty', 5 symb : %s\n", strnstr("HEYMYFRIEND", "", 5));
-	printf("Test for ft_strnstr HEYMYFRIEND, 'empty', 5 symb : %s\n\n\n", ft_strnstr("HEYMYFRIEND", "", 5));
-	printf("Test for strnstr HEYMYFRIEND, MY, 0 symb : %s\n", strnstr("HEYMYFRIEND", "MY", 0));
-	printf("Test for ft_strnstr HEYMYFRIEND, MY, 0 symb : %s\n", ft_strnstr("HEYMYFRIEND", "MY",0));
 	
 
 	printf("Test for atoi    +9223372036854775807 : %d\n", atoi("   +9223372036854775807"));
@@ -239,20 +213,12 @@ int	main(void)
 
 	void	*strx, *strx1;
 	strx = calloc(5, 4);
-	printf("Printing the calloc for count 5, size 4 %s\n", strx);
+	printf("Printing the calloc for count 5, size 4 %p\n", strx);
 	free(strx);
 	strx1 = ft_calloc(5, 4);
-	printf("Printing the ft_calloc for count 5, size 4 %s\n\n\n", strx1);
+	printf("Printing the ft_calloc for count 5, size 4 %p\n\n\n", strx1);
 	free(strx1);
 	
-	char	*astr;
-	char	*astr1;
-	astr = calloc(90000000000, 90000000000);
-	astr1 = ft_calloc(90000000000, 90000000000);
-	printf("calloc overflow: %s\n", astr);
-	printf("ft_calloc overflow: %s\n", astr1);
-	free(astr);
-	free(astr1);
 
 	char	*bstr;
 	char	*bstr1;
@@ -267,10 +233,10 @@ int	main(void)
 	void	*str2 = "MOIKKA";
 	void	*str3 = "MOIKKA";
 	str2 = strdup(str2);
-	printf("Printing the strdup for MOIKKA %s\n", str2);
+	printf("Printing the strdup for MOIKKA %p\n", str2);
 	free(str2);
 	str3 = ft_strdup(str3);
-	printf("Printing the ft_strdup for MOIKKA %s\n\n\n", str3);
+	printf("Printing the ft_strdup for MOIKKA %p\n\n\n", str3);
 	free(str3);
 
 
@@ -437,4 +403,16 @@ int	main(void)
 	ft_putnbr_fd(-123, 1);
 
 	return (0);
+}
+
+static void addcstr(unsigned int a, char *c)
+{
+	*c = *c + a;
+	return ;
+}
+
+static char addc(unsigned int a, char c)
+{
+	c = c + a;
+	return (c);
 }

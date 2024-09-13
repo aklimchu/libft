@@ -26,6 +26,10 @@ static char	*checknull(void *dst, const void *src)
 	return ("ALL GOOD");
 }
 
+//The function  copies n bytes from memory area src to memory area dest.
+//The memory areas may overlap: copying takes place as though the bytes
+//in src are first copied into a temporary array that does not overlap
+//src or dest, and the bytes are then copied from the temporary array to dest (libc)
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;

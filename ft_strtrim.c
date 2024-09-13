@@ -12,6 +12,35 @@
 
 #include "libft.h"
 
+static size_t	checkc(char c, char const *set);
+
+static size_t	checkstr(char const *s1, char const *set);
+
+static size_t	checklen(char const *s1, char const *set);
+
+//The function allocates and returns a copy of ’s1’ with the characters
+//specified in ’set’ removed from the beginning and the end of the string
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	newlen;
+	char	*new_s;
+
+	newlen = checklen(s1, set);
+	new_s = (char *)malloc((newlen + 1) * sizeof(char));
+	if (new_s == NULL)
+		return ((void *)0);
+	while (checkc(*s1, set) == 1)
+		s1++;
+	while ((*s1) && checkstr(s1, set) != ft_strlen(s1))
+	{
+		*new_s = *s1;
+		new_s++;
+		s1++;
+	}
+	*new_s = '\0';
+	return (new_s - newlen);
+}
+
 static size_t	checkc(char c, char const *set)
 {
 	while (*set)
@@ -50,25 +79,4 @@ static size_t	checklen(char const *s1, char const *set)
 		i++;
 	}
 	return (i);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	size_t	newlen;
-	char	*new_s;
-
-	newlen = checklen(s1, set);
-	new_s = (char *)malloc((newlen + 1) * sizeof(char));
-	if (new_s == NULL)
-		return ((void *)0);
-	while (checkc(*s1, set) == 1)
-		s1++;
-	while ((*s1) && checkstr(s1, set) != ft_strlen(s1))
-	{
-		*new_s = *s1;
-		new_s++;
-		s1++;
-	}
-	*new_s = '\0';
-	return (new_s - newlen);
 }

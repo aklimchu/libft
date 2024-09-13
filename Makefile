@@ -44,7 +44,7 @@ OBJ = $(SRC:.c=.o)
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
-INCLUDE = libft.h
+INCLUDE = ./
 
 all: $(NAME)
 
@@ -52,7 +52,7 @@ all: $(NAME)
 	$(CC) $(CFLAGS) $^ -c -o $@ -I $(INCLUDE)
 
 $(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
+	ar -r $(NAME) $(OBJ)
 
 bonus: .bonus
 	
@@ -68,4 +68,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all test clean fclean re bonus
+.PHONY: all clean fclean re bonus

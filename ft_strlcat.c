@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+//The strlcat() function appends the NUL-terminated string src to the end of dst.
+//It will append at most size - strlen(dst) - 1 bytes,  NUL-terminating the result (libc)
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	totallen;

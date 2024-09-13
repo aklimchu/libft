@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+//function allocates memory for an array of elements of size bytes each and 
+//returns a pointer to the allocated memory. The memory is set to zero (libc)
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*arr;

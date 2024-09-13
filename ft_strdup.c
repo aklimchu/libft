@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// The function returns a pointer to a new string which is a duplicate of the string s (libc)
 char	*ft_strdup(const char *s1)
 {
 	char	*arr;

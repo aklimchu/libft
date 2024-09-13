@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+//The function returns a pointer to the last occurrence of the character c
+//in the string s (libc)
 char	*ft_strrchr(const char *s, int c)
 {
 	size_t	slen;

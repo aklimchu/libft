@@ -10,17 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static const char	*whites(const char *str)
-{
-	while ((*str == 32) || (*str > 8 && *str < 14))
-		str++;
-	if (*str == 43 && *(str + 1) == 45)
-		return (str);
-	else if (*str == 43)
-		str++;
-	return (str);
-}
+static const char	*whites(const char *str);
 
+//The function converts the initial portion of the string to int (libc)
 int	ft_atoi(const char *str)
 {
 	int			res;
@@ -47,4 +39,15 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (res * neg);
+}
+
+static const char	*whites(const char *str)
+{
+	while ((*str == 32) || (*str > 8 && *str < 14))
+		str++;
+	if (*str == 43 && *(str + 1) == 45)
+		return (str);
+	else if (*str == 43)
+		str++;
+	return (str);
 }

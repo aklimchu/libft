@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//The function checks whether a character is printable character (libc)
 int	ft_isprint(int c)
 {
 	if (c > 31 && c < 127)

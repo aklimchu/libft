@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//The function checks if argument is an alphanumeric character (libc)
 int	ft_isalnum(int c)
 {
 	if ((c > 64 && c < 91) || (c > 96 && c < 123))

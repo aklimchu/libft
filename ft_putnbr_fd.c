@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+//The function outputs the integer ’n’ to the given file descriptor
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;

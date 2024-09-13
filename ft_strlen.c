@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+//The function calculates the length of the string pointed to by s,
+//excluding the terminating null byte (libc)
 size_t	ft_strlen(const char *c)
 {
 	size_t		i;

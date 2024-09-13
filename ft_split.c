@@ -12,6 +12,43 @@
 
 #include "libft.h"
 
+static void	free_m(char **new_s, size_t i);
+
+static size_t	nextc(char const *s, char c);
+
+static size_t	new_count(char const *s, char c);
+
+//The function allocates and returns an array of strings obtained by
+//splitting ’s’ using the character ’c’ as a delimiter.
+char	**ft_split(char const *s, char c)
+{
+	char	**new_s;
+	size_t	i;
+
+	new_s = (char **)malloc(new_count(s, c) * sizeof(char *));
+	if (new_s == NULL)
+		return ((void *) 0);
+	i = 0;
+	while (*s)
+	{
+		if (*s == c)
+			s++;
+		else
+		{
+			new_s[i] = ft_substr(s, 0, nextc(s, c));
+			if (new_s[i] == NULL)
+			{
+				free_m(new_s, i);
+				return (NULL);
+			}
+			i++;
+			s = s + nextc(s, c);
+		}
+	}
+	new_s[i] = ((void *) 0);
+	return (new_s);
+}
+
 static void	free_m(char **new_s, size_t i)
 {
 	size_t	count;
@@ -56,33 +93,4 @@ static size_t	new_count(char const *s, char c)
 		s++;
 	}
 	return (i);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**new_s;
-	size_t	i;
-
-	new_s = (char **)malloc(new_count(s, c) * sizeof(char *));
-	if (new_s == NULL)
-		return ((void *) 0);
-	i = 0;
-	while (*s)
-	{
-		if (*s == c)
-			s++;
-		else
-		{
-			new_s[i] = ft_substr(s, 0, nextc(s, c));
-			if (new_s[i] == NULL)
-			{
-				free_m(new_s, i);
-				return (NULL);
-			}
-			i++;
-			s = s + nextc(s, c);
-		}
-	}
-	new_s[i] = ((void *) 0);
-	return (new_s);
 }

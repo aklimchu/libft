@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//The function checks if a given character can be represented as a valid 
+//7–bit US-ASCII character (libc)
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

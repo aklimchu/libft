@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+//The  function  fills  the  first  n  bytes of the memory area
+//pointed to by s with the constant byte c (libc)
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;

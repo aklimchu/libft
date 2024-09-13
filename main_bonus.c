@@ -17,37 +17,15 @@
 #include <limits.h>
 #include "libft.h"
 
-void	free_c(void *c)
-{
-	free(c);
-}
+static void	free_c(void *c);
 
-void	printlist(t_list *lst)
-{
-	while (lst)
-	{
-		printf("New node for ft_lstmap: %s\n", (char*)lst->content);
-		lst = lst->next;
-	}
-}
+static void	printlist(t_list *lst);
 
-void    iterate_c(void *c)
-{
-	while (*(char *)c)
-	{
-		*(char *)c = 'a';
-		c++;
-	}
-}
+static void    iterate_c(void *c);
 
-void    *iterate_c_2(void *c)
-{
-	if (*(char *)c < '2')
-		return((void *) 0);
-	*(char *)c = *(char *)c + 5;
-	return(c);
-}
+static void    *iterate_c_2(void *c);
 
+////Tests for libft (bonus part)
 int	main(void)
 {
 	t_list	*str;
@@ -189,4 +167,35 @@ int	main(void)
 	free(two8);
 
 	return (0);
+}
+
+static void	free_c(void *c)
+{
+	free(c);
+}
+
+static void	printlist(t_list *lst)
+{
+	while (lst)
+	{
+		printf("New node for ft_lstmap: %s\n", (char*)lst->content);
+		lst = lst->next;
+	}
+}
+
+static void    iterate_c(void *c)
+{
+	while (*(char *)c)
+	{
+		*(char *)c = 'a';
+		c++;
+	}
+}
+
+static void    *iterate_c_2(void *c)
+{
+	if (*(char *)c < '2')
+		return((void *) 0);
+	*(char *)c = *(char *)c + 5;
+	return(c);
 }
