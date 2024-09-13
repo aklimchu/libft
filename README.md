@@ -36,11 +36,11 @@ make bonus
 
 * #### libft:
 ```bash
-./libft.a main.c
+cc main.c libft.a
 ```
 * #### libft - bonus functions:
 ```bash
-./libft.a main_bonus.c
+cc main_bonus.c libft.a
 ```
 *(you can use the tests provided or create your own tests)*
 
