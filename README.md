@@ -1,36 +1,57 @@
-# Libft
-The goal of the project was code various essential functions from C library (e.g. atoi, strcat, strdup, etc.).
-Also I had to code custom functions.
+# libft:
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://opensource.org/licenses/GPL-3.0)
+Libft is a custom implementation of key functions from the C standard library. This library was later reused across other projects, ensuring efficient and optimized code without relying on external libraries.
 
-## Installation
+## 📚 Table of Contents
 
-<!-- start:code block -->
-#### Clone this repository
-git clone https://github.com/aklimchu/Libft.git
+## ✨ Features
+- Reimplementation of essential C functions (`atoi`, `strdup`, `memset`, etc.)
+- Custom utility functions for advanced operations
 
-cd Libft
+## 📚 Table of Contents
+- [✨ Features](#-features)
+- [🚀 Installation!](#-installation)
+- [🛠️ Build the Program!](#️-build-the-program)
+- [🎮 Running the Program](#-running-the-program)
+- [🧹 Cleaning Up](#-cleaning-up)
+- [License](#license)
 
-<!-- end:code block -->
+## 🚀 Installation!
 
-## Running the tests
+Clone the repository and navigate to the project directory:
+```bash
+git clone https://github.com/aklimchu/libft.git
+cd libft
+```
+## 🛠️ Build the Program!
 
-<!-- start:code block -->
-#### Create the library with Makefile
+### Use `make` command to create the program:
+```bash
 make
-
-#### Test the function with the main.c
-./libft.a main.c
-
-#### Make the bonus functions
+```
+### Or - use `make bonus` command to create the bonus program:
+```bash
 make bonus
+```
 
-#### Test the bonus functions with the main_bonus.c
+## 🎮 Running the Program
+
+* #### libft:
+```bash
+./libft.a main.c
+```
+* #### libft - bonus functions:
+```bash
 ./libft.a main_bonus.c
+```
+*(you can use the tests provided or create your own tests)*
 
-#### Clean the object files and library file
+## 🧹 Cleaning Up
+
+To remove object files and libraries:
+```bash
 make fclean
-
-<!-- end:code block -->
-
+```
 ## License
+
 This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the LICENSE.md file for details
